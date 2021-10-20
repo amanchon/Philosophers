@@ -1,8 +1,23 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <pthread.h>
-#include <sys/time.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amanchon <amanchon@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 18:45:57 by amanchon          #+#    #+#             */
+/*   Updated: 2021/11/20 18:46:38 by amanchon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PHILO_H
+# define PHILO_H
+
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <pthread.h>
+# include <sys/time.h>
 
 typedef struct s_table
 {
@@ -60,3 +75,5 @@ int				sleep_philo(t_philo *philo, int tmps);
 int				mtn(void);
 int				philo_copiste(t_philo *philo, int num, int temps, int action);
 t_philo			*creer_philo(t_table *table, int *mort, t_data *data);
+
+#endif

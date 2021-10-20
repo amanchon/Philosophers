@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amanchon <amanchon@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 18:45:57 by amanchon          #+#    #+#             */
+/*   Updated: 2021/11/20 18:46:38 by amanchon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	start_philo(pthread_t *thread_philo, t_philo *philo, int i)
@@ -60,7 +72,7 @@ int	main(int ac, char **av)
 	while (++i < data.nb_philo)
 	{
 		if (start_philo(thread_philo, creer_philo(&table, &mort, &data),
-										i) == 1)
+				i) == 1)
 			exit(1);
 	}
 	att_philo_et_nettoyer_table(thread_philo, &table, data.nb_philo);

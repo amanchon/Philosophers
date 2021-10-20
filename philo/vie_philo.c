@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vie_philo.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amanchon <amanchon@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/20 18:45:57 by amanchon          #+#    #+#             */
+/*   Updated: 2021/11/20 18:46:38 by amanchon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int	routine_dun_philo_suite(t_philo *philo)
@@ -14,11 +26,11 @@ int	routine_dun_philo_suite(t_philo *philo)
 	}
 	pthread_mutex_unlock(&philo->mange_ou_creve);
 	if (philo_copiste(philo, philo->num, mtn() - philo->depart, 3) == 1)
-			return (1);
+		return (1);
 	if (sleep_philo(philo, philo->data->t_dormir) == 1)
 		return (1);
 	if (philo_copiste(philo, philo->num, mtn() - philo->depart, 4) == 1)
-			return (1);
+		return (1);
 	return (0);
 }
 
@@ -32,9 +44,9 @@ int	routine_dun_philo(t_philo *philo)
 		return (1);
 	tps = mtn() - depart;
 	if (philo_copiste(philo, philo->num, tps, 1) == 1)
-			return (1);
+		return (1);
 	if (philo_copiste(philo, philo->num, tps, 2) == 1)
-			return (1);
+		return (1);
 	philo->t_dernier_repas = mtn();
 	pthread_mutex_unlock(&philo->mange_ou_creve);
 	if (routine_dun_philo_suite(philo) == 1)
