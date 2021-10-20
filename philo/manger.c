@@ -44,25 +44,24 @@ void	lacher_forks(t_philo *philo, t_table *table)
 	philo->mains[1] = 0;
 }
 
-int	manger(t_philo *philo, int t_manger)
+int	sleep_philo(t_philo *philo, int tmps)
 {
 	int	t1;
 	int	t2;
 
 	t1 = mtn();
 	t2 = mtn();
-	while (t2 - t1 < t_manger)
+	while (t2 - t1 < tmps)
 	{
-		pthread_mutex_lock(philo->fin);
+		pthread_mutex_lock(&philo->table->fin);
 		if (*philo->mort == 1)
 		{
-			pthread_mutex_unlock(philo->fin);
+			pthread_mutex_unlock(&philo->table->fin);
 			return (1);
 		}
-		pthread_mutex_unlock(philo->fin);
+		pthread_mutex_unlock(&philo->table->fin);
 		usleep(100);
 		t2 = mtn();
 	}
-	lacher_forks(philo, philo->table);
 	return (0);
 }
