@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = philo
-CFLAGS = -Wall -Wextra -Werror -lpthread -fsanitize=thread -g3
+CFLAGS = -Wall -Wextra -Werror -lpthread #-fsanitize=thread -g3
 
 SRCS =			./main.c \
 				./ecg.c \

@@ -72,7 +72,7 @@ int	sleep_philo(t_philo *philo, int tmps)
 			return (1);
 		}
 		pthread_mutex_unlock(&philo->table->fin);
-		usleep(100);
+		usleep(500);
 		t2 = mtn();
 	}
 	return (0);

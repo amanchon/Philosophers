@@ -14,9 +14,6 @@
 
 int	routine_dun_philo_suite(t_philo *philo)
 {
-	if (sleep_philo(philo, philo->data->t_manger) == 1)
-		return (1);
-	lacher_forks(philo, philo->table);
 	pthread_mutex_lock(&philo->mange_ou_creve);
 	philo->nb_repas += 1;
 	if (philo->nb_repas == philo->data->nb_repas_max)
@@ -49,6 +46,9 @@ int	routine_dun_philo(t_philo *philo)
 		return (1);
 	philo->t_dernier_repas = mtn();
 	pthread_mutex_unlock(&philo->mange_ou_creve);
+	if (sleep_philo(philo, philo->data->t_manger) == 1)
+		return (1);
+	lacher_forks(philo, philo->table);
 	if (routine_dun_philo_suite(philo) == 1)
 		return (1);
 	return (0);
@@ -94,7 +94,5 @@ void	*vie_dun_philo(void *info)
 	}
 	pthread_join(thread_ecg, NULL);
 	pthread_mutex_destroy(&philo->mange_ou_creve);
-	free(philo);
-	philo = NULL;
 	return (NULL);
 }
