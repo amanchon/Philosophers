@@ -19,8 +19,8 @@ void	start_philo(pthread_t *thread_philo, t_philo *philo, int nb_philo)
 	i = -1;
 	while (++i < nb_philo)
 	{
-			if (pthread_create(&thread_philo[i], NULL, vie_dun_philo, &philo[i]))
-				ft_putstr_fd("Philo: pthread_create a échoué\n", 2);
+		if (pthread_create(&thread_philo[i], NULL, vie_dun_philo, &philo[i]))
+			ft_putstr_fd("Philo: pthread_create a échoué\n", 2);
 	}
 }
 
