@@ -25,6 +25,7 @@ SRCS =			./main.c \
 				./ft_strlen.c \
 				./mtn.c \
 				./vie_philo.c \
+				./creer_philo.c \
 
 OBJS = $(SRCS:.c=.o)
 
